@@ -28,10 +28,8 @@ let isHovered = false;
 
 // move input
 window.addEventListener('mousemove', (e) => {
-  mouse.x = (e.clientX - window.innerWidth) * 2 - 1;
-  mouse.y = -(e.clientY - window.innerHeight) * 2 + 1;
-
-  card.rotation.y += (mouse.x - card.rotation.y) * 0.08;
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 })
 
 // hover input
@@ -47,7 +45,7 @@ renderer.domElement.addEventListener('mousedown', () => {
   isPressed = true;
 })
 renderer.domElement.addEventListener('mouseup', () => {
-  isPress = false;
+  isPressed = false;
 });
 
 
@@ -57,17 +55,20 @@ function animate() {
   //lerp 
   let targetZ = 0;
   let targetScale = 1;
-
+  let targetRotationX = mouse.y * 0.2;
+  let targetRotationY = mouse.x * 0.4;
+  
   if(isHovered) {
     targetScale = 1.3;
-    targetZ = 0.2;
+    targetZ = 0.4;
   }
-  card.scale.x += (targetScale - card.scale.x) * 0.08;
-
   if(isPressed) {
     targetScale = 0.95
     targetZ = -0.2;
   }
+  card.rotation.y += (targetRotationY - card.rotation.y) * 0.08;
+  card.scale.x += (targetScale - card.scale.x) * 0.08;
+  card.scale.y += (targetScale - card.scale.y) * 0.08;
   card.position.z += (targetZ - card.position.z) * 0.08;
   renderer.render(scene, camera);
 }
