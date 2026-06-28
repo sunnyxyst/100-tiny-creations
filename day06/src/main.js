@@ -27,8 +27,6 @@ window.addEventListener('mousemove', (e) => {
 });
 
 let isHovered = false;
-let targetX = 0;
-let targetY = 0;
 
 renderer.domElement.addEventListener('mouseenter', () => {
   isHovered = true
@@ -40,17 +38,20 @@ renderer.domElement.addEventListener('mouseleave', ()=> {
 function animate() {
   requestAnimationFrame(animate);
 
-  targetX = mouse.x * 0.3;
-  targetY = mouse.y * 0.2;
+  // animate 기본값 설정
+  let targetX = 0;
+  let targetY = 0;
+  let targetRotationY = 0;
 
   if(isHovered) {
-    targetX = 0.5;
-    targetY = 0.3;
+    targetX = mouse.x * 0.3;
+    targetY = mouse.y * 0.2;
+    targetRotationY = mouse.x * 0.6;
   }
 
   card.position.x += (targetX - card.position.x) * 0.08;
   card.position.y += (targetY - card.position.y) * 0.08;
-
+  card.rotation.y += (targetRotationY - card.rotation.y) * 0.08;
   renderer.render(scene, camera);
 }
 
