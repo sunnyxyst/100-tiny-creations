@@ -41,6 +41,22 @@ function animate() {
     console.log(mouse.x, mouse.y)
     // mouse.x 마우스가 왼쪽이면 좌표값이 마이너스, mouse.y 마우스가 아래쪽이면 좌표값이 마이너스
     // 마우스가 왼쪽 아래 위치시 mouse.x/mouse.y 모두 마이너스, 오른쪽 위 위치시 mouse.x/mouse.y 모두 플러스
+    
+    // 1 : 마우스 위 카드 위가 앞으로 튀어나오는 느낌 (당기는 느낌)
+    // targetRotationX = mouse.y;
+    // targetRotationY = 0;
+
+    // 2 : 마우스 위 카드 위가 뒤로 들어가는 느낌 (누르는 느낌)
+    // targetRotationX = -mouse.y;
+    // targetRotationY = 0;
+
+    // 3: 마우스가 좌우에 위치한 곳이 뒤로가는 느낌 (누르는 느낌)
+    // targetRotationX = 0;
+    // targetRotationY = mouse.x;
+
+    // 4: 마우스가 좌우 중 위치한 곳이 앞으로 나오는 느낌 (잡아당기는 느낌)
+    // targetRotationX = 0;
+    // targetRotationY = -mouse.x;
   }
 
   // 오른쪽을 뒤로 보내고 싶다 -> rotation.y
