@@ -17,8 +17,8 @@ const card = new THREE.Mesh(geometry, material);
 scene.add(card);
 
 const mouse = {
-  x: 0,
-  y: 0
+  x: 999,
+  y: 999
 }
 window.addEventListener('mousemove', (e) => {
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -42,6 +42,9 @@ function animate() {
     targetRotationX = mouse.y * 0.4;
     targetRotationY = -mouse.x * 0.6;
     targetScale = 1.08;
+    material.color.set(0x3366ff);
+  } else {
+    material.color.set(0xffffff)
   }
 
   card.position.y += (targetY - card.position.y) * 0.08;
