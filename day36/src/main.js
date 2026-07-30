@@ -73,6 +73,11 @@ function animate() {
     targetLightX = localPoint.x;
     targetLightY = localPoint.y;
     targetLightIntensity = 3 * influence;
+
+    console.log({
+      influence,
+      intensity: targetLightIntensity
+    })
   }
 
   card.rotation.x += (targetRotationX - card.rotation.x) * 0.05;
