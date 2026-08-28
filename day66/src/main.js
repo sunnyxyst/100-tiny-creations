@@ -58,8 +58,8 @@ function animate() {
 
     targetX = localPoint.x * softX * 0.25;
     targetY = localPoint.y * strongY * 0.25;
-    targetRotationX = localPoint.y * strongY * 0.2;
-    targetRotationY = -localPoint.x * softX * 0.2;  
+    targetRotationX = localPoint.y * softY * 0.2;
+    targetRotationY = -localPoint.x * strongX * 0.2;  
   }
 
   card.position.x += (targetX - card.position.x) * 0.1;
